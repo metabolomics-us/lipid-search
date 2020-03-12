@@ -176,6 +176,7 @@ def information_parsing(total, i):
             info = r[id]
             name = info['name']
             description = info['description']
+            print(description)
             organism = info['organism']
             scientific_name = organism['scientificname']
             if scientific_name == "Homo sapiens":
@@ -208,7 +209,7 @@ currentDT = datetime.datetime.now()
 print(currentDT.strftime("%I:%M:%S %p"))
 
 print('--------------------------------------------------------------------------------------------------')
-print('{:<60} {:<20} {:<15}'.format('Compound','Related Compounds','Number of Genes'))
+print('{:<60} {:<20} {:<15}'.format('Compound','Related Compounds','Number of Human Genes'))
 print('--------------------------------------------------------------------------------------------------')
 for i in second_dictionary:
     print('{:<60} {:<20} {:<15}'.format(i, second_dictionary[i][0], second_dictionary[i][1]))

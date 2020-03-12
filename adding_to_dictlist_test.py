@@ -18,11 +18,13 @@ def class_search(quest):
     return soup
 
 def counting(stew, quest, count):
+    lst = []
     for table_tag in stew.find_all("table"):
         for a in table_tag.find_all('a'):
             thing = a.text
             count += 1
-        query_dic.update({quest : count})
+        lst.append(count)
+        query_dic.update({quest : lst})
     return query_dic
 
 def new_searches(stoup, seq_query):
@@ -53,11 +55,18 @@ for i in second_query:
         soup = class_search(i)
         count = 0
         second_dictionary = counting(soup, i, count)
-#print(second_dictionary())
+for i in second_dictionary:
+    gene_count = 1000
+    second_dictionary[i].append(gene_count)
+
+
+
+print("NCBI portion done")
+
 
 print('-------------------------------------------------------------------')
-print('{:<60} {:<15}'.format('Compound','Count'))
+print('{:<60} {:<15} {:<15}'.format('Compound','Count','Number of Genes'))
 print('-------------------------------------------------------------------')
-for k, v in second_dictionary.items():
-    print('{:<60} {:<15}'.format(k, v))
+for i in second_dictionary:
+    print('{:<60} {:<15} {:<15}'.format(i, second_dictionary[i][0], second_dictionary[i][1]))
 print('-------------------------------------------------------------------')

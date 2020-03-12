@@ -14,4 +14,5 @@ for link in links:                               ##  search through the list of 
     if "MGI" in link.text:                     ##  turning it into a list allows us to use the .text function (find thing in text of link)
 #        print(link.text)
         MGI = link.text
+
 print(MGI + " here ya go")
